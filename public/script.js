@@ -63,12 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   let links = $("nav a");
-  links.forEach((elem) => {
-    elem.addEventListener("click", (event) => {
-      links.forEach((link) => link.classList.remove("active"));
-      event.target.classList.add("active");
-    });
-  });
+  links.forEach(
+    (elem) => {
+      elem.addEventListener("click", (event) => {
+        links.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+      });
+    },
+    { threshold: 1.0 },
+  );
 
   $("nav a.scramble").forEach((elem) =>
     elem.addEventListener("mouseover", (event) => scramble(event.target)),
