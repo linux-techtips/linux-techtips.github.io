@@ -180,7 +180,7 @@ article .tags ul {
   gap: 1rem;
 }
 
-article .tags li,
+article .tags ul li,
 article .tags a {
   background-color: var(--body-background-color);
   color: var(--text-primary-color);
