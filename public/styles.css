@@ -110,8 +110,11 @@ p a:hover {
 }
 
 article {
+  --gap: 20px;
+
   display: grid;
   grid-template-columns: 55% 45%;
+  /* grid-column-gap: var(--gap); Go ahead. Remove the manual padding from the .desc and .tags. I dare you */
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "desc media"
@@ -124,6 +127,7 @@ article {
   overflow: hidden;
   padding: 1.2rem;
 
+  position: relative;
   opacity: 0;
   border-radius: 10px;
   box-shadow: 0 12px 18px rgba(0, 0, 0, 0.4);
@@ -140,7 +144,7 @@ article:focus {
 
 article .desc {
   grid-area: desc;
-  padding-right: 1.2rem;
+  padding-right: var(--gap);
 }
 
 article .desc h2 {
@@ -164,18 +168,20 @@ article .desc p {
 article .tags {
   grid-area: tags;
   display: flex;
-  justify-content: left;
+  padding-right: var(--gap);
 }
 
 article .tags ul {
-  display: flex;
   list-style-type: none;
+  display: flex;
+  flex-direction: row;
   padding: 0;
   margin: 0;
   gap: 1rem;
 }
 
-article .tags li {
+article .tags li,
+article .tags a {
   background-color: var(--body-background-color);
   color: var(--text-primary-color);
 
@@ -184,6 +190,10 @@ article .tags li {
 
   border-radius: 10px;
   padding: 0.6rem;
+}
+
+article .tags a {
+  margin-left: auto;
 }
 
 article .media {
@@ -212,6 +222,14 @@ article .media img {
     grid-template-areas:
       "desc"
       "tags";
+  }
+
+  article .tags {
+    padding-right: 0;
+  }
+
+  article .tags {
+    padding-right: 0;
   }
 }
 
