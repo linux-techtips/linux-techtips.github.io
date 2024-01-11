@@ -37,7 +37,7 @@ body {
 }
 
 @media (max-width: 600px) {
-  main {
+  body {
     max-width: 92.5vw;
   }
 }
@@ -219,18 +219,23 @@ article:last-child {
   margin-bottom: 100px;
 }
 
+article:first-of-type {
+  margin-top: 75px;
+}
+
 footer#hire {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 footer#hire h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .social {
   display: flex;
+  padding-top: 26px;
   align-items: center;
   justify-content: center;
+  font-size: 5em;
   gap: 4rem;
-  font-size: 4rem;
 }
