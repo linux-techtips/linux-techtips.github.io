@@ -1,3 +1,5 @@
+import { Card } from "./ui/card.js";
+
 const $ = function (select) {
   return document.querySelectorAll(select);
 };
