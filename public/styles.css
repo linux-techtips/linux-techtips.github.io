@@ -15,6 +15,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
@@ -27,9 +31,7 @@ body {
   font-family: var(--text-secondary-font);
   font-size: 1.5rem;
   color: var(--text-secondary-color);
-}
 
-main {
   max-width: 70vw;
   margin-inline: auto;
 }
@@ -211,4 +213,24 @@ article .media img {
       "desc"
       "tags";
   }
+}
+
+article:last-child {
+  margin-bottom: 100px;
+}
+
+footer#hire {
+  padding-bottom: 100px;
+}
+
+footer#hire h2 {
+  font-size: 2rem;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  font-size: 4rem;
 }

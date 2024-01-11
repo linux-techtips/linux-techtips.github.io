@@ -27,7 +27,7 @@ const scramble = function (elem) {
   }, 40);
 };
 
-const animateCard = function (card, idx) {
+const animateCardIn = function (card, idx) {
   const keyframes = [
     { transform: "translateX(-100%)", opacity: 0 },
     { transform: "translateX(0)", opacity: 1 },
@@ -51,14 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
     (entries) => {
       entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
-          const elem = entry.target;
-
-          animateCard(elem, idx);
-          observer.unobserve(elem);
+          animateCardIn(entry.target, idx);
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.5 },
+    { threshold: 0.4 },
   );
 
   $("article").forEach((card) => {
