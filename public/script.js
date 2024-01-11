@@ -1,10 +1,13 @@
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*?";
-
 const $ = function (select) {
   return document.querySelectorAll(select);
 };
 
 const scramble = function (elem) {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*?";
+  if (!elem.dataset.scrambleText) {
+    elem.dataset.scrambleText = elem.innerText;
+  }
+
   const data_text = elem.dataset.scrambleText;
   let iter = 0;
 
@@ -24,56 +27,51 @@ const scramble = function (elem) {
   }, 40);
 };
 
+const animateCard = function (card, idx) {
+  const keyframes = [
+    { transform: "translateX(-100%)", opacity: 0 },
+    { transform: "translateX(0)", opacity: 1 },
+  ];
+
+  const options = {
+    delay: idx * 250,
+    easing: "cubic-bezier(.42,0,.33,1.18)",
+    duration: 750,
+  };
+
+  const animation = card.animate(keyframes, options);
+  animation.onfinish = () => {
+    card.style.transform = "";
+    card.style.opacity = "1";
+  };
+};
+
 document.addEventListener("DOMContentLoaded", () => {
-  const slideInObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, idx) => {
-      if (entry.isIntersecting) {
-        const elem = entry.target;
-
-        elem.style.animation = `var(--card-animation) ${idx * 250}ms both`;
-
-        const onAnimationEnd = function () {
-          elem.style.removeProperty("animation");
-          elem.removeEventListener("animationend", onAnimationEnd);
-        };
-
-        elem.addEventListener("animationend", onAnimationEnd);
-
-        slideInObserver.unobserve(elem);
-      }
-    });
-  });
-
-  $("main article").forEach((card) => slideInObserver.observe(card));
-
-  const scrambleObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
+      entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
-          scramble(entry.target);
+          const elem = entry.target;
+
+          animateCard(elem, idx);
+          observer.unobserve(elem);
         }
       });
     },
-    { threshold: 1.0 },
+    { threshold: 0.5 },
   );
 
-  $(".scramble").forEach((elem) => {
-    elem.dataset.scrambleText = elem.innerText;
-    scrambleObserver.observe(elem);
+  $("article").forEach((card) => {
+    const h2 = card.querySelector("h2");
+    card.onmouseenter = () => {
+      scramble(h2);
+    };
+    observer.observe(card);
   });
 
-  let links = $("nav a");
-  links.forEach(
-    (elem) => {
-      elem.addEventListener("click", (event) => {
-        links.forEach((link) => link.classList.remove("active"));
-        event.target.classList.add("active");
-      });
-    },
-    { threshold: 1.0 },
-  );
-
-  $("nav a.scramble").forEach((elem) =>
-    elem.addEventListener("mouseover", (event) => scramble(event.target)),
-  );
+  $(".scramble").forEach((elem) => {
+    elem.onmouseenter = () => {
+      scramble(elem);
+    };
+  });
 });
