@@ -34,6 +34,12 @@ main {
   margin-inline: auto;
 }
 
+@media (max-width: 600px) {
+  main {
+    max-width: 92.5vw;
+  }
+}
+
 main > * {
   width: auto;
 }
@@ -60,6 +66,13 @@ a.active {
 
 a:hover {
   color: var(--text-secondary-color);
+}
+
+@media (max-width: 600px) {
+  a,
+  span {
+    font-size: 1rem;
+  }
 }
 
 h1 {
@@ -185,4 +198,17 @@ article .media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  article .media {
+    display: none;
+  }
+
+  article {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "desc"
+      "tags";
+  }
 }
