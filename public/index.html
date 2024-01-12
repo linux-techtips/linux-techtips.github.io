@@ -20,83 +20,12 @@
 <body>
   <header>
     <h1>Carter Vavra</h1>
-    <nav>
-      <a href="#" class="scramble">blog</a>
-      <span>/</span>
-      <a href="#" class="scramble active">whoami</a>
-      <span>/</span>
-      <a href="#hire" class="scramble">hire?</a>
-    </nav>
+    <ui-nav></ui-nav>
   </header>
   <main>
-    <p>
-      <span>></span>
-      I'm a programmer obsessed with the joy of programming. I am currently
-      attending <a href="https://www.utrgv.edu/">UTRGV</a> with a major in
-      Computer Science and a minor in Cyber Security.
-    </p>
-    <p>
-      <span>></span>
-      My primary obsession is programming language design and compiler
-      development. I like staying on top of the latest practices and designs
-      for programming languages and one day hope to create my own.
-    </p>
-    <p>
-      <span>></span>
-      Even though I like to hang out on the low-level side of development in
-      languages like: <a href="https://isocpp.org/">C++</a>,
-      <a href="https://ziglang.org/">Zig</a>, and
-      <a href="https://www.rust-lang.org/">Rust</a>. With the projects or jobs
-      that I take on, I always enjoy adapting to widly different areas of
-      programming that I would have never approached otherwise.
-    </p>
-    <br />
-    <ui-card head="DHS Research" desc="Currently, I am performing research funded by the Department of
-          Homeland Security. This research currently involves the combinaion
-          of monocular depth estimation paired with drones swarmes to provide
-          real time 3D point clouds." tags="Python PyTorch ML" link="./assets/lab-report.pdf"
-      media="./assets/drone.jpg"></ui-card>
-
-    <ui-card head="bootstrab" desc="bootstrab is a single-header anti-build system written in C++ for
-        building C++. It provides serveral utilities for compiling programs
-        efficiently along with the ability to rebuild itself on change. This
-        project is also in development. I continue to add features and
-        rework the library as I use it" tags="C++" link="https://github.com/linux-techtips/bootstrab"
-      media="./assets/build-tools.jpg"></ui-card>
-
-    <ui-card head="ppgpu" desc="ppgpu is a single header library for modern C++ that exposes
-          bindings and provides modern abstractions with sane defaults over
-          the wgpu-native library. With just this one header, users can start
-          developing native GPU powered applications for desktop." tags="C++ wgpu Rust"
-      link="https://github.com/linux-techtips/ppgpu" media="./assets/gpu.jpg"></ui-card>
-    <br />
+    <ui-route href="./routes/whoami.html"></ui-route>
   </main>
-  <footer id="hire">
-    <h2>Wanna hire me?</h2>
-    <p>
-      <span>></span>Awesome!!! I'm working my hardest to break into the
-      industry wherever it may have me. Even though I've only done it
-      part-time, programming hardly feels like a job. I do it because I love
-      it and I want to be the best I can possibly be. If you're interested,
-      feel free to contact me using any of the links below. If not I can
-      always go for my masters I suppose...
-    </p>
-    <div class="social">
-      <a href="https://github.com/linux-techtips" target="_blank">
-        <i class="fab fa-github fa-4x"></i>
-      </a>
-      <a href="mailto:vavraacademy@gmail.com">
-        <i class="fas fa-envelope fa-4x"></i>
-      </a>
-      <a href="https://discord.com/users/linuxtechtips" target="_blank">
-        <i class="fab fa-discord fa-4x"></i>
-      </a>
-    </div>
-  </footer>
+  <footer></footer>
 </body>
 
 </html>
-<!-- I know this is improper crediting. But these are very temporary and I will replace them with my own media sorry thanks <3 -->
-<!-- Photo by <a href="https://unsplash.com/@nanadua11?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nana Dua</a> on <a href="https://unsplash.com/photos/black-and-silver-round-device-aVeKubCF-48?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
-<!-- Photo by <a href="https://unsplash.com/@mattartz?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Matt Artz</a> on <a href="https://unsplash.com/photos/two-gray-wrenches-dh3zAdGGOIY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
-<!-- Photo by <a href="https://unsplash.com/@dose?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Dose Media</a> on <a href="https://unsplash.com/photos/turned-on-black-quadcopter-drone-DiTiYQx0mh4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->

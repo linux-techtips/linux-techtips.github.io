@@ -5,6 +5,9 @@ export const Card = class extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    this.querySelectorAll("article").forEach((card) => {
+      observer.observe(card);
+    });
   }
 
   template({ head, desc, tags, link, media }) {
@@ -56,7 +59,7 @@ export const Card = class extends HTMLElement {
 
         article .head hr {
           background-color: var(--text-tertiary-color);
-          margin: 1rem 0 1rem 0;
+          margin: 1.5rem 0 1rem 0;
           border: none;
           height: 4px;
           width: 20px;
@@ -137,26 +140,6 @@ export const Card = class extends HTMLElement {
           article .tags {
             padding-right: 0;
           }
-
-          article .tags {
-            padding-right: 0;
-          }
-
-          article:hover {
-            grid-template-areas:
-            "head"
-            "media"
-            "tags";
-          }
-
-          article:hover .media {
-            display: block;
-            margin-bottom: 20px;
-          }
-
-          article:hover .desc {
-            display: none;
-          }
         }
       </style>
       <article>
@@ -165,7 +148,7 @@ export const Card = class extends HTMLElement {
           <hr />
         </section>
         <section class="desc">
-          <p><span>></span>${desc}</p>
+          <p>${desc}</p>
         </section>
         <section class="tags">
           <ul>
@@ -197,3 +180,34 @@ export const Card = class extends HTMLElement {
 };
 
 customElements.define("ui-card", Card);
+
+const animateCardIn = function (card, idx) {
+  const keyframes = [
+    { transform: "translateX(-100%)", opacity: 0 },
+    { transform: "translateX(0)", opacity: 1 },
+  ];
+
+  const options = {
+    delay: idx * 250,
+    easing: "cubic-bezier(.42,0,.33,1.18)",
+    duration: 750,
+  };
+
+  const animation = card.animate(keyframes, options);
+  animation.onfinish = () => {
+    card.style.transform = "";
+    card.style.opacity = "1";
+  };
+};
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting) {
+        animateCardIn(entry.target, idx);
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.4 },
+);

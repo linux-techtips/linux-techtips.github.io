@@ -109,12 +109,12 @@ p a:hover {
   color: var(--text-tertiary-color);
 }
 
-footer#hire {
+footer {
   margin-top: 50px;
   padding-bottom: 50px;
 }
 
-footer#hire h2 {
+footer h2 {
   font-size: 1.5rem;
 }
 
