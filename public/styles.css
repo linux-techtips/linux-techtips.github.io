@@ -29,7 +29,7 @@ body {
 
 body {
   font-family: var(--text-secondary-font);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--text-secondary-color);
 
   max-width: 70vw;
@@ -170,7 +170,6 @@ article .desc {
 }
 
 article .desc p {
-  font-size: 1.2rem;
   margin-top: 0;
 }
 
@@ -203,6 +202,8 @@ article .tags a {
 }
 
 article .tags a {
+  background-color: var(--text-primary-color);
+  color: var(--card-background-color);
   margin-left: auto;
 }
 

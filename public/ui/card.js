@@ -32,12 +32,12 @@ export const Card = class extends HTMLElement {
               .map((tag) => `<li>${tag}</li>`)
               .join("\n")}
           </ul>
-          <a href="${link}">
+          <a href="${link}" target="_blank">
             <i class="fa-solid fa-link"></i>
           </a>
         </section>
         <section class="media">
-          <img alt="image" src="${media}"></img>
+          <img alt="image" srcset="${media}" sizes="(min-width: 600px)"></img>
         </section>
       </article>
     `;
