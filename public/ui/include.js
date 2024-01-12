@@ -1,4 +1,4 @@
-export const Route = class extends HTMLElement {
+export const Include = class extends HTMLElement {
   constructor() {
     super();
 
@@ -16,4 +16,4 @@ export const Route = class extends HTMLElement {
   }
 };
 
-customElements.define("ui-route", Route);
+customElements.define("ui-include", Include);

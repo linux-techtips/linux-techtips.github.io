@@ -1,31 +1,57 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Carter's Portfolio Page" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Carter's Portfolio Page" />
+    <title>Portfolio</title>
+    <script
+      src="https://kit.fontawesome.com/1bd722bb8d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Montserrat:wght@900&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./script.js" defer></script>
+  </head>
 
-  <title>Portfolio</title>
-  <script src="https://kit.fontawesome.com/1bd722bb8d.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Montserrat:wght@900&family=Press+Start+2P&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
-  <script type="module" src="./script.js" defer></script>
-</head>
-
-<body>
-  <header>
-    <h1>Carter Vavra</h1>
-    <ui-nav></ui-nav>
-  </header>
-  <main>
-    <ui-route href="./routes/whoami.html"></ui-route>
-  </main>
-  <footer></footer>
-</body>
-
+  <body>
+    <header>
+      <h1>Carter Vavra</h1>
+      <nav>
+        <ui-button
+          onmouseenter="scramble(this)"
+          target="#content"
+          href="./routes/blog.html"
+          >blog</ui-button
+        >
+        <span>/</span>
+        <ui-button
+          onmouseenter="scramble(this)"
+          class="active"
+          target="#content"
+          href="./routes/whoami.html"
+          >whoami</ui-button
+        >
+        <span>/</span>
+        <ui-button
+          onmouseenter="scramble(this)"
+          target="#content"
+          after="hirePlease(event)"
+          href="./routes/whoami.html"
+          >hire?</ui-button
+        >
+      </nav>
+    </header>
+    <main>
+      <div id="content">
+        <ui-include href="./routes/whoami.html"></ui-include>
+      </div>
+    </main>
+  </body>
 </html>
